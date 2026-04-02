@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* === PRIMARY COLORS === */
+  --primary: #6a2c91 !important;
+  --primary-dark: #4b1f66 !important;
+  --accent-yellow: #f4b400 !important;
+
+  /* === STATUS COLORS === */
+  --success: #16a34a !important;
+  --danger: #dc2626 !important;
+  --warning: #f4b400 !important;
+
+  /* === BACKGROUNDS === */
+  --bg-page: #f6f3fb !important;
+  --bg-card: #ffffff !important;
+  --bg-muted: #f1e9fb !important;
+
+  /* === TEXT === */
+  --text-main: #2e2e2e !important;
+  --text-muted: #6b7280 !important;
+
+  /* === BORDERS & SHADOWS === */
+  --border: #e5e7eb !important;
+  --shadow: 0 8px 24px rgba(106, 44, 145, 0.15) !important;
+
+  /* === RADIUS === */
+  --radius: 10px;
+  --radius-sm: 6px;
+
+  /* === EXTRA (for sidebar / layout) === */
+  --sidebar-bg: #ffffff;
+  --content-bg: #f6f3fb;
+  --light-purple: #f1e9fb;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+}
+
+.dashboard-bg {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary), #4f46e5);
+  background-size: 200% 200%;
+  animation: bg-shift 10s ease infinite;
+}
+
+.dashboard-header {
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  color: white;
+  text-align: center;
+}
+
+.dashboard-card {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(106, 44, 145, 0.35);
+  border-color: var(--primary);
+}
+
+@keyframes bg-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.dashboard-card table,
+.dashboard-card th,
+.dashboard-card td {
+  color: var(--text-main);
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.65s ease forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+}
